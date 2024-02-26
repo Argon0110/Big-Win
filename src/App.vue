@@ -1,30 +1,41 @@
 <script setup>
-import HelloWorld from './components/HelloWorld.vue'
+import { ref } from "vue";
+import Main from "./components/Main.vue";
+
+const Image = ref(0);
+
+setInterval(() => Image.value = Image.value < 3 ? Image.value + 1 : 0, 5000);
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+  <div id="mainWrapper">
+    <article>
+      <img v-if="Image === 0" class="BannerImg" src="/src/assets/AdTop2.png"/>
+      <img v-else-if="Image === 1" class="BannerImg" src="/src/assets/AdTop1.png"/>
+      <img v-else-if="Image === 2" class="BannerImg" src="/src/assets/GOAT.png"/>
+      <img v-else-if="Image === 3" class="BannerImg" src="/src/assets/Ouch.png"/>
+    </article>
+    <Main />
+    <article>
+      <img v-if="Image % 2 === 0" class="BannerImg" src="/src/assets/CurlyHair.png"/>
+      <img v-else class="BannerImg" src="/src/assets/Sardo.png"/>
+    </article>
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
+  #mainWrapper {
+    height: calc(100vh - 60px);
+  }
+  article {
+    height: 20%;
+  }
+  main {
+    height: 60%;
+  }
+  .BannerImg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
 </style>
