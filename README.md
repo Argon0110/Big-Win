@@ -1,3 +1,3 @@
-Progetto regalo per un mio amico. Verrà rimosso a breve
+Progetto regalo per un mio amico.
 
-I's a surprise project gor a frirnd of mine. Will be nevr deleted 
+I's a surprise project gor a friend of mine.
